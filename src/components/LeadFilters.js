@@ -1,24 +1,16 @@
 import React from "react";
 import {
   Box,
-  Button,
+  // Button,
   Chip,
   TextField,
-  ToggleButton,
-  ToggleButtonGroup,
+  // ToggleButton,
+  // ToggleButtonGroup,
 } from "@mui/material";
 
-const statusOptions = [
-  "new",
-  "no feedback",
-  "In Progress",
-  "waiting",
-  "no success",
-  "Order placed",
-  "completed",
-];
-const typeOptions = ["Salesperson", "Buyer"];
-const brokerOptions = ["Prime"];
+const statusOptions = ["new", "In Progress", "Completed", "Closed", "Pending"];
+const typeOptions = ["Salesperson", "Representative", "Consultant", "Agent"];
+const brokerOptions = ["Prime", "TopBroker", "TrustCorp", "SecureLine", "Elite"];
 const subscriptionOptions = ["Prepaid", "Premium"];
 
 export default function LeadFilters({ filters, setFilters }) {
@@ -33,7 +25,8 @@ export default function LeadFilters({ filters, setFilters }) {
         flexWrap: "wrap",
         gap: 2,
         mb: 2,
-        alignItems: "center",
+        flexDirection: { xs: "column", sm: "row" },
+        alignItems: { xs: "stretch", sm: "center" },
       }}
     >
       <TextField
@@ -41,14 +34,16 @@ export default function LeadFilters({ filters, setFilters }) {
         size="small"
         value={filters.search || ""}
         onChange={(e) => handleChange("search", e.target.value)}
-        sx={{ minWidth: 320 }}
+        sx={{ minWidth: { xs: "100%", sm: 320 } }}
+        fullWidth={false}
       />
       <TextField
         label="Search by postcode"
         size="small"
         value={filters.postcode || ""}
         onChange={(e) => handleChange("postcode", e.target.value)}
-        sx={{ minWidth: 180 }}
+        sx={{ minWidth: { xs: "100%", sm: 180 } }}
+        fullWidth={false}
       />
       <TextField
         label="From"
@@ -57,6 +52,8 @@ export default function LeadFilters({ filters, setFilters }) {
         InputLabelProps={{ shrink: true }}
         value={filters.from || ""}
         onChange={(e) => handleChange("from", e.target.value)}
+        sx={{ minWidth: { xs: "100%", sm: 120 } }}
+        fullWidth={false}
       />
       <TextField
         label="Until"
@@ -65,8 +62,10 @@ export default function LeadFilters({ filters, setFilters }) {
         InputLabelProps={{ shrink: true }}
         value={filters.until || ""}
         onChange={(e) => handleChange("until", e.target.value)}
+        sx={{ minWidth: { xs: "100%", sm: 120 } }}
+        fullWidth={false}
       />
-      <Box sx={{ display: "flex", gap: 1 }}>
+      <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
         {statusOptions.map((status) => (
           <Chip
             key={status}
@@ -79,7 +78,7 @@ export default function LeadFilters({ filters, setFilters }) {
           />
         ))}
       </Box>
-      <Box sx={{ display: "flex", gap: 1 }}>
+      <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
         {typeOptions.map((type) => (
           <Chip
             key={type}
@@ -92,7 +91,7 @@ export default function LeadFilters({ filters, setFilters }) {
           />
         ))}
       </Box>
-      <Box sx={{ display: "flex", gap: 1 }}>
+      <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
         {brokerOptions.map((broker) => (
           <Chip
             key={broker}
@@ -105,7 +104,7 @@ export default function LeadFilters({ filters, setFilters }) {
           />
         ))}
       </Box>
-      <Box sx={{ display: "flex", gap: 1 }}>
+      <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
         {subscriptionOptions.map((sub) => (
           <Chip
             key={sub}

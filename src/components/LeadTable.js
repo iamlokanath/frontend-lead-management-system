@@ -22,6 +22,8 @@ const columns = [
   { id: "company", label: "company" },
   { id: "name", label: "name" },
   { id: "status", label: "status" },
+  { id: "broker", label: "broker" },
+  { id: "subscription", label: "subscription" },
   { id: "act", label: "act." },
 ];
 
