@@ -8,7 +8,6 @@ This is the frontend for the Lead Management System, built with React. It allows
 - **Advanced Search:** Search leads by customer number, lead ID, property ID, agent, name, company, or postcode.
 - **Date Filtering:** Filter leads by creation date range using intuitive date pickers.
 - **Status & Type Filters:** Filter leads by status, type, broker, and subscription.
-- **CRUD Operations:** Create, update, and delete leads directly from the UI.
 - **Responsive Design:** Works well on both desktop and mobile devices.
 - **Error Handling:** User-friendly error messages for failed operations.
 
