@@ -37,14 +37,14 @@ export default function LeadFilters({ filters, setFilters }) {
         sx={{ minWidth: { xs: "100%", sm: 320 } }}
         fullWidth={false}
       />
-      <TextField
+      {/* <TextField
         label="Search by postcode"
         size="small"
         value={filters.postcode || ""}
         onChange={(e) => handleChange("postcode", e.target.value)}
         sx={{ minWidth: { xs: "100%", sm: 180 } }}
         fullWidth={false}
-      />
+      /> */}
       <TextField
         label="From"
         type="date"
