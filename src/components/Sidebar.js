@@ -8,7 +8,9 @@ import {
   Divider,
 } from "@mui/material";
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import AssignmentIcon from "@mui/icons-material/Assignment";
+import WhatshotIcon from '@mui/icons-material/Whatshot';
+import AdjustIcon from '@mui/icons-material/Adjust';
+import ListIcon from '@mui/icons-material/List';
 import PeopleIcon from "@mui/icons-material/People";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import StarIcon from "@mui/icons-material/Star";
@@ -20,9 +22,9 @@ import { NavLink, useLocation } from "react-router-dom";
 const menuItems = [
   { text: "Dashboard", icon: <DashboardIcon />, path: "/dashboard" },
   { text: "broker", icon: <PeopleIcon />, path: "/broker" },
-  { text: "Lead objects", icon: <AssignmentIcon />, path: "/lead-objects" },
-  { text: "Leads", icon: <AssignmentIcon />, path: "/leads" },
-  { text: "Tickets", icon: <AssignmentIcon />, badge: 10, path: "/tickets" },
+  { text: "Lead objects", icon: <AdjustIcon />, path: "/lead-objects" },
+  { text: "Leads", icon: <WhatshotIcon />, path: "/leads" },
+  { text: "Tickets", icon: <ListIcon />, path: "/tickets" },
   { text: "Postal codes", icon: <LocalOfferIcon />, path: "/postal-codes" },
   { text: "Support", icon: <SupportAgentIcon />, path: "/support" },
   { text: "Quality", icon: <StarIcon />, path: "/quality" },
@@ -66,20 +68,7 @@ export default function Sidebar() {
           >
             <ListItemIcon>{item.icon}</ListItemIcon>
             <ListItemText primary={item.text} />
-            {item.badge && (
-              <span
-                style={{
-                  background: "#e57373",
-                  color: "#fff",
-                  borderRadius: 12,
-                  padding: "2px 8px",
-                  fontSize: 12,
-                  marginLeft: 8,
-                }}
-              >
-                {item.badge}
-              </span>
-            )}
+           
           </ListItem>
         ))}
       </List>
