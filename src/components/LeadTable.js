@@ -18,13 +18,14 @@ const columns = [
   { id: "date", label: "Date" },
   { id: "leadId", label: "Lead ID" },
   { id: "objectId", label: "Object ID" },
-  { id: "type", label: "type" },
-  { id: "company", label: "company" },
-  { id: "name", label: "name" },
-  { id: "status", label: "status" },
-  { id: "broker", label: "broker" },
-  { id: "subscription", label: "subscription" },
-  { id: "act", label: "act." },
+  { id: "type", label: "Type" },
+  { id: "company", label: "Company" },
+  { id: "name", label: "Name" },
+  { id: "phone", label: "Phone" },
+  { id: "status", label: "Status" },
+  { id: "broker", label: "Broker" },
+  { id: "subscription", label: "Subscription" },
+  { id: "act", label: "Act." },
 ];
 
 export default function LeadTable({
