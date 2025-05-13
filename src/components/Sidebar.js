@@ -15,21 +15,23 @@ import StarIcon from "@mui/icons-material/Star";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
+import { NavLink, useLocation } from "react-router-dom";
 
 const menuItems = [
-  { text: "Dashboard", icon: <DashboardIcon /> },
-  { text: "broker", icon: <PeopleIcon /> },
-  { text: "Lead objects", icon: <AssignmentIcon /> },
-  { text: "Leads", icon: <AssignmentIcon /> },
-  { text: "Tickets", icon: <AssignmentIcon />, badge: 10 },
-  { text: "Postal codes", icon: <LocalOfferIcon /> },
-  { text: "Support", icon: <SupportAgentIcon /> },
-  { text: "Quality", icon: <StarIcon /> },
-  { text: "Finance", icon: <MonetizationOnIcon /> },
-  { text: "statistics", icon: <BarChartIcon /> },
+  { text: "Dashboard", icon: <DashboardIcon />, path: "/dashboard" },
+  { text: "broker", icon: <PeopleIcon />, path: "/broker" },
+  { text: "Lead objects", icon: <AssignmentIcon />, path: "/lead-objects" },
+  { text: "Leads", icon: <AssignmentIcon />, path: "/leads" },
+  { text: "Tickets", icon: <AssignmentIcon />, badge: 10, path: "/tickets" },
+  { text: "Postal codes", icon: <LocalOfferIcon />, path: "/postal-codes" },
+  { text: "Support", icon: <SupportAgentIcon />, path: "/support" },
+  { text: "Quality", icon: <StarIcon />, path: "/quality" },
+  { text: "Finance", icon: <MonetizationOnIcon />, path: "/finance" },
+  { text: "statistics", icon: <BarChartIcon />, path: "/statistics" },
 ];
 
 export default function Sidebar() {
+  const location = useLocation();
   return (
     <Drawer
       variant="permanent"
@@ -46,8 +48,22 @@ export default function Sidebar() {
     >
       <div style={{ height: 64 }} />
       <List>
-        {menuItems.map((item, idx) => (
-          <ListItem button key={item.text} selected={item.text === "Leads"}>
+        {menuItems.map((item) => (
+          <ListItem
+            button
+            key={item.text}
+            component={NavLink}
+            to={item.path}
+            selected={location.pathname === item.path}
+            sx={{
+              color: "#222",
+              "&.active, &[aria-current=page]": {
+                background: "#b2dfdb",
+                fontWeight: "bold",
+                color: "#00796b",
+              },
+            }}
+          >
             <ListItemIcon>{item.icon}</ListItemIcon>
             <ListItemText primary={item.text} />
             {item.badge && (
