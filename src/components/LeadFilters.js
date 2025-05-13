@@ -30,7 +30,7 @@ export default function LeadFilters({ filters, setFilters }) {
       }}
     >
       <TextField
-        label="Search by customer number, lead ID, property ID, agent, name"
+        label="Search by customer Phone, lead ID, property ID, agent, name"
         size="small"
         value={filters.search || ""}
         onChange={(e) => handleChange("search", e.target.value)}
